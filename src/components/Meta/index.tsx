@@ -22,6 +22,7 @@ export default function Meta({ title }: { title: string }) {
         property="og:description"
         content="František Ortmann je držitelem několika ocenění Czech Press Photo. Poslední získal v roce 2010 za první místo Zlaté oko v kategorii Lidé, o nichž se mluví. Měl samostatnou retrospektivní výstavu portrétů ve Sbírce moderního umění Národní galerie. Řadí se k obecně nejmladším, samostatně vystavujícím fotografům v Národní galerii vůbec."
       />
+      <meta property="og:image" content="/static/system/og_image.jpg" />
       <meta property="og:site_name" content="František Ortmann" />
       <meta property="og:type" content="website" />
       <meta name="author" content="František Ortmann" />

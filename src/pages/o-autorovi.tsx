@@ -17,7 +17,7 @@ export default function About() {
           />
         </div>
         <div className="overflow-y-auto bg-gray-50 rounded-md">
-          <div className="prose overflow-hidden p-5 mx-auto font-[Barlow] font-light text-slate-800">
+          <div className="prose overflow-hidden p-5 mx-auto font-barlow font-light text-slate-800">
             <p>
               Zapamatujete si ho, nedá se přehlédnout. Je to ten trochu
               excentrický chlápek s vousy a foťákem. Všude, kde se něco děje

@@ -2,13 +2,14 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/styles/*.{js,ts,jsx,tsx,scss}",
   ],
   darkMode: "class",
   theme: {
-    fontFamily: {
-      extend: {
-        display: ["Oswald"],
-        body: ["Barlow"],
+    extend: {
+      fontFamily: {
+        oswald: ['"Oswald"', "sans-serif"],
+        barlow: ['"Barlow"', "sans-serif"],
       },
     },
   },

@@ -1,16 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;500&family=Oswald:wght@600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;500&family=Oswald:wght@600&display=swap");
 @import "@fortawesome/fontawesome-svg-core/styles.css";
 
 html,
 body,
 #__next {
-  @apply w-full h-full;
-
-  font-family: "Oswald", sans-serif;
+  @apply w-full h-full font-oswald;
 }
 
 *::-webkit-scrollbar {
@@ -22,7 +21,7 @@ body,
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply bg-slate-500
+  @apply bg-slate-500;
 }
 
 *::-webkit-scrollbar-thumb:hover {

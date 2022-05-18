@@ -44,7 +44,7 @@ export default function Meta({ title }: { title: string }) {
         sizes="16x16"
         href="/static/favicon/favicon-16x16.png"
       />
-      <link rel="manifest" href="/static/favicon/site.webmanifest" />
+      <link rel="manifest" href="/static/favicon/manifest.json" />
       <link
         rel="mask-icon"
         href="/static/favicon/safari-pinned-tab.svg"
@@ -57,8 +57,6 @@ export default function Meta({ title }: { title: string }) {
         content="/static/favicon/browserconfig.xml"
       />
       <meta name="theme-color" content="#ffffff" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
     </Head>
   );
 }

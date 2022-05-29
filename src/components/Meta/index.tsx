@@ -57,6 +57,8 @@ export default function Meta({ title }: { title: string }) {
         content="/static/favicon/browserconfig.xml"
       />
       <meta name="theme-color" content="#ffffff" />
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
     </Head>
   );
 }

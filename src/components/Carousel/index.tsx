@@ -38,19 +38,19 @@ export default function Carousel({ images }: { images: number }) {
 
   return (
     <div className=" bg-black h-full relative">
-      <a
+      <button
         onClick={() => prevSlide()}
         className="absolute py-2 px-3 bg-white rounded-r-md z-10 left-0 top-1/2 -translate-y-1/2 cursor-pointer hover:bg-slate-100"
       >
         <FontAwesomeIcon icon="arrow-left" />
-      </a>
+      </button>
 
-      <a
+      <button
         onClick={() => nextSlide()}
         className="absolute py-2 px-3 bg-white rounded-l-md z-10 right-0 top-1/2 -translate-y-1/2 cursor-pointer hover:bg-slate-100"
       >
         <FontAwesomeIcon icon="arrow-right" />
-      </a>
+      </button>
 
       <Image
         src={imagesPaths[currentSlide]}

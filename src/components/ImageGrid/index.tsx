@@ -29,15 +29,15 @@ export default function ImageGrid({
   return (
     <>
       {mediaModal && (
-        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black z-20 p-4">
-          <a
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black z-50 p-4">
+          <button
             onClick={() => setMediaModal(false)}
-            className="px-4 py-3 bg-slate-400 flex items-center justify-center fixed top-4 rounded-md right-4 hover:bg-white cursor-pointer"
+            className="px-4 py-3 z-50 isolate bg-slate-400 flex items-center justify-center fixed top-4 rounded-md right-4 hover:bg-white cursor-pointer"
           >
             <FontAwesomeIcon icon="times" />
-          </a>
+          </button>
           <div className="flex items-center justify-center h-full max-w-full max-h-full">
-            <img src={imgURL} alt="" />
+            <Image fill src={imgURL} alt="" className="object-contain" />
           </div>
         </div>
       )}

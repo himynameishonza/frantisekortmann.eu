@@ -1,18 +1,19 @@
 import '../styles/globals.scss';
-import { IconPack, library } from '@fortawesome/fontawesome-svg-core';
-import { fad } from '@fortawesome/pro-duotone-svg-icons';
-import { far } from '@fortawesome/pro-regular-svg-icons';
-import { fas } from '@fortawesome/pro-solid-svg-icons';
-import { fal } from '@fortawesome/pro-light-svg-icons';
+import { AppProps } from 'next/app';
+import { IconPack, library, config } from '@fortawesome/fontawesome-svg-core';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
+// Tell FontAwesome to skip adding the CSS automatically since it's already imported above
+config.autoAddCss = false;
 
 library.add(fab as IconPack);
-library.add(fad as IconPack);
 library.add(far as IconPack);
 library.add(fas as IconPack);
-library.add(fal as IconPack);
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
     return <Component {...pageProps} />;
 }
 

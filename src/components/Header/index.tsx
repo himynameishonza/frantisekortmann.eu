@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Meta from "../Meta";
 import classnames from "classnames";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header({
   title,
@@ -12,15 +12,19 @@ export default function Header({
   active?: number;
 }) {
   const [mobileNav, setMobileNav] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <>
       <Meta title={title} />
       <div className="flex items-center justify-between mb-4">
-        <Link href="/">
-          <a className="text-2xl md:text-4xl uppercase no-underline block">
-            <span className="text-slate-700">František</span>
-            <span className="text-slate-500">Ortmann</span>
-          </a>
+        <Link href="/" className="text-2xl md:text-4xl uppercase no-underline block">
+          <span className="text-slate-700">František</span>
+          <span className="text-slate-500">Ortmann</span>
         </Link>
 
         <div className="flex items-center gap-1 ">
@@ -38,13 +42,12 @@ export default function Header({
                 ["md:border-b-2 md:border-slate-300"]: active === 1,
               })}
             >
-              <Link href="/o-autorovi">
-                <a
-                  className="p-4 md:p-0 w-full block hover:text-slate-500"
-                  onClick={() => setMobileNav(false)}
-                >
-                  O autorovi
-                </a>
+              <Link
+                href="/o-autorovi"
+                className="p-4 md:p-0 w-full block hover:text-slate-500"
+                onClick={() => setMobileNav(false)}
+              >
+                O autorovi
               </Link>
             </li>
             <li
@@ -52,13 +55,12 @@ export default function Header({
                 ["md:border-b-2 md:border-slate-300"]: active === 2,
               })}
             >
-              <Link href="/detail">
-                <a
-                  className="p-4 md:p-0 w-full block hover:text-slate-500 transition-all"
-                  onClick={() => setMobileNav(false)}
-                >
-                  Detail
-                </a>
+              <Link
+                href="/detail"
+                className="p-4 md:p-0 w-full block hover:text-slate-500 transition-all"
+                onClick={() => setMobileNav(false)}
+              >
+                Detail
               </Link>
             </li>
             <li
@@ -66,13 +68,12 @@ export default function Header({
                 ["md:border-b-2 md:border-slate-300"]: active === 3,
               })}
             >
-              <Link href="/people">
-                <a
-                  className="p-4 md:p-0 w-full block hover:text-slate-500 transition-all"
-                  onClick={() => setMobileNav(false)}
-                >
-                  People
-                </a>
+              <Link
+                href="/people"
+                className="p-4 md:p-0 w-full block hover:text-slate-500 transition-all"
+                onClick={() => setMobileNav(false)}
+              >
+                People
               </Link>
             </li>
             <li
@@ -80,23 +81,22 @@ export default function Header({
                 ["md:border-b-2 md:border-slate-300"]: active === 4,
               })}
             >
-              <Link href="/show">
-                <a
-                  className="p-4 md:p-0 w-full block hover:text-slate-500 transition-all"
-                  onClick={() => setMobileNav(false)}
-                >
-                  Show
-                </a>
+              <Link
+                href="/show"
+                className="p-4 md:p-0 w-full block hover:text-slate-500 transition-all"
+                onClick={() => setMobileNav(false)}
+              >
+                Show
               </Link>
             </li>
           </ul>
 
-          <a
+          <button
             className="md:hidden bg-slate-100 flex p-2 rounded-md text-slate-500 hover:bg-slate-200 cursor-pointer text-xl"
             onClick={() => setMobileNav(!mobileNav)}
           >
-            <FontAwesomeIcon icon={["fas", "bars"]} />
-          </a>
+            {mounted ? <FontAwesomeIcon icon={["fas", "bars"]} /> : <span>☰</span>}
+          </button>
 
           <div
             className={classnames(
@@ -104,21 +104,28 @@ export default function Header({
               { ["hidden md:flex"]: !mobileNav }
             )}
           >
-            <Link href="https://www.facebook.com/ortmann.frantisek/">
-              <a className="flex w-10 h-10 md:w-8 md:h-8 items-center justify-center text-white bg-slate-700 rounded-full hover:bg-slate-500 cursor-pointer text-lg transition-all">
-                <FontAwesomeIcon icon={["fab", "facebook"]} />
-              </a>
-            </Link>
-            <Link href="https://www.instagram.com/frantisekortmann/">
-              <a className="flex w-10 h-10 md:w-8 md:h-8 items-center justify-center text-white bg-slate-700 rounded-full hover:bg-slate-500 cursor-pointer text-lg transition-all">
-                <FontAwesomeIcon icon={["fab", "instagram"]} />
-              </a>
-            </Link>
-            <Link href="mailto:frantisek@frantisekortmann.eu">
-              <a className="flex w-10 h-10 md:w-8 md:h-8 items-center justify-center text-white bg-slate-700 rounded-full hover:bg-slate-500 cursor-pointer text-lg transition-all">
-                <FontAwesomeIcon icon={["far", "envelope"]} />
-              </a>
-            </Link>
+            <a
+              href="https://www.facebook.com/ortmann.frantisek/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex w-10 h-10 md:w-8 md:h-8 items-center justify-center text-white bg-slate-700 rounded-full hover:bg-slate-500 cursor-pointer text-lg transition-all"
+            >
+              {mounted ? <FontAwesomeIcon icon={["fab", "facebook-f"]} /> : <span>f</span>}
+            </a>
+            <a
+              href="https://www.instagram.com/frantisekortmann/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex w-10 h-10 md:w-8 md:h-8 items-center justify-center text-white bg-slate-700 rounded-full hover:bg-slate-500 cursor-pointer text-lg transition-all"
+            >
+              {mounted ? <FontAwesomeIcon icon={["fab", "instagram"]} /> : <span>i</span>}
+            </a>
+            <a
+              href="mailto:frantisek@frantisekortmann.eu"
+              className="flex w-10 h-10 md:w-8 md:h-8 items-center justify-center text-white bg-slate-700 rounded-full hover:bg-slate-500 cursor-pointer text-lg transition-all"
+            >
+              {mounted ? <FontAwesomeIcon icon={["far", "envelope"]} /> : <span>@</span>}
+            </a>
           </div>
         </div>
       </div>
